@@ -14,10 +14,10 @@ manifest:
    #    revision: main 
     - name: eyelash_sofle
       url: https://github.com/a741725193/zmk-sofle
-      revision: main
+      revision: v0.3.0
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: v0.3.0
       import: app/west.yml
   self:
     path: boards
