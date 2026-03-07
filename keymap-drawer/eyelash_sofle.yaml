@@ -100,20 +100,20 @@ layers:
   - '&mkp MB5'
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
   - PG DN
-  - $$mdi:arrow-left-bold$$
+  - Sft+Alt+Gui+J
   - $$mdi:arrow-down-bold$$
-  - $$mdi:arrow-right-bold$$
+  - Gui+Alt+Sft+L
   - {t: '[', s: '{'}
   - {t: ']', s: '}'}
-  - KP EQUAL
-  - {t: Sft+-, s: Sft+_}
-  - KP MINUS
-  - KP PLUS
+  - {t: '=', s: +}
+  - _
+  - {t: '-', s: _}
+  - +
   - {t: '[', s: '{'}
   - {t: ']', s: '}'}
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
-  - RGB BRI
-  - RGB BRD
+  - '{'
+  - '}'
   - Ins
   - F11
   - F12
