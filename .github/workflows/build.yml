@@ -7,5 +7,10 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        board: [eyelash_sofle_left, eyelash_sofle_right]
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      board: ${{ matrix.board }}
 
