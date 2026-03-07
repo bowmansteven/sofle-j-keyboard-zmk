@@ -126,10 +126,10 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - PREVIOUS
+  - PLAY PAUSE
+  - PLAY PAUSE
+  - $$mdi:skip-next$$
   layer2:
   - '~'
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
