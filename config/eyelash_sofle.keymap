@@ -49,6 +49,60 @@
         };
     };
 
+    macros {
+        PWD: PWD {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_wait_time 50>,
+                <&kp LS(C) &kp O &kp L &kp L &kp A &kp P &kp S &kp E &kp LS(C) &kp O &kp L &kp L &kp A &kp P &kp S &kp E &kp EXCL &kp N1 &kp N7>,
+                <&macro_wait_time 100>,
+                <&kp ENTER>;
+
+            label = "PWD";
+        };
+
+        SF_TEMPTABLE: SF_TEMPTABLE {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_wait_time 50>,
+                <&kp LS(C) &kp LS(R) &kp LS(E) &kp LS(A) &kp LS(T) &kp LS(E) &kp SPACE &kp LS(O) &kp LS(R) &kp SPACE &kp LS(R) &kp LS(E) &kp LS(P) &kp LS(L) &kp LS(A) &kp LS(C) &kp LS(E) &kp SPACE &kp LS(T) &kp LS(E) &kp LS(M) &kp LS(P) &kp LS(O) &kp LS(R) &kp LS(A) &kp LS(R) &kp LS(Y) &kp SPACE &kp LS(T) &kp LS(A) &kp LS(B) &kp LS(L) &kp LS(E) &kp SPACE &kp SPACE &kp LS(A) &kp LS(S)>,
+                <&macro_wait_time 100>,
+                <&kp ENTER>;
+
+            label = "SF_TEMPTABLE";
+        };
+
+        SF_TBLEVENT: SF_TBLEVENT {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_wait_time 50>,
+                <&kp LS(S) &kp LS(A) &kp LS(N) &kp LS(D) &kp LS(B) &kp LS(O) &kp LS(X) &kp LS(M) &kp LS(A) &kp LS(R) &kp LS(K) &kp LS(E) &kp LS(T) &kp LS(I) &kp LS(N) &kp LS(G) &kp DOT &kp LS(M) &kp LS(K) &kp LS(T) &kp LS(G) &kp DOT &kp LS(T) &kp LS(B) &kp LS(L) &kp LS(E) &kp LS(V) &kp LS(E) &kp LS(N) &kp LS(T) &kp UNDER &kp LS(P) &kp LS(A) &kp LS(R) &kp LS(S) &kp LS(E) &kp LS(D)>,
+                <&macro_wait_time 100>,
+                <&kp ENTER>;
+
+            label = "SF_TBLEVENT";
+        };
+
+        GP: GP {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_wait_time 50>,
+                <&kp S &kp T &kp E &kp V &kp E &kp N &kp DOT &kp B &kp O &kp W &kp M &kp A &kp N>,
+                <&macro_wait_time 100>,
+                <&kp TAB>,
+                <&macro_wait_time 100>,
+                <&kp LS(C) &kp O &kp L &kp L &kp A &kp P &kp S &kp E &kp LS(C) &kp O &kp L &kp L &kp A &kp P &kp S &kp E &kp EXCL &kp N1 &kp N7>,
+                <&macro_wait_time 100>,
+                <&kp ENTER>;
+
+            label = "GP";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
