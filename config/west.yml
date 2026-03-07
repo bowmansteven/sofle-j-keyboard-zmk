@@ -17,7 +17,7 @@ manifest:
       revision: main
     - name: zmk
       remote: zmkfirmware
-      revision: v0.4.1
+      revision: c06fa48ce59e016105d79c20942d085314502d8d
       import: app/west.yml
   self:
     path: boards
