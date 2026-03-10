@@ -120,7 +120,7 @@
 
         layer_1 {
             bindings = <
-&kp DEL     &kp F1          &kp F2     &kp F3     &kp F4            &kp F5               &mmv MOVE_UP     &mmv MOVE_LEFT  &mmv MOVE_DOWN     &mmv MOVE_UP      &mmv MOVE_RIGHT    &kp F10           &mkp MB1
+&kp DEL     &bt BT_CLR_ALL  &kp F2     &kp F3     &kp F4            &kp F5               &mmv MOVE_UP     &mmv MOVE_LEFT  &mmv MOVE_DOWN     &mmv MOVE_UP      &mmv MOVE_RIGHT    &kp F10           &mkp MB1
 &trans      &trans          &mkp LCLK  &mkp MCLK  &trans            &mkp MB4             &mmv MOVE_DOWN   &kp PG_UP       &kp END            &kp UP            &kp HOME           &kp MINUS         &kp EQUAL
 &trans      &kp TILDE       &trans     &trans     &trans            &mkp MB5             &mmv MOVE_LEFT   &kp PG_DN       &kp LS(LA(LG(J)))  &kp DOWN          &kp LG(LA(LS(L)))  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
 &kp EQUAL   &kp UNDERSCORE  &kp MINUS  &kp PLUS   &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &mmv MOVE_RIGHT  &kp LEFT_BRACE  &kp RIGHT_BRACE    &kp INSERT        &kp F11            &kp F12           &trans
