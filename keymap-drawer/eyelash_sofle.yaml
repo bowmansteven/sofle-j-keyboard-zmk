@@ -67,7 +67,7 @@ layers:
   - $$mdi:arrow-right-bold$$
   layer1:
   - $$mdi:backspace-reverse-outline$$
-  - F1
+  - BT CLR ALL
   - F2
   - F3
   - F4
