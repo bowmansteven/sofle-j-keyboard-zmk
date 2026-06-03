@@ -66,8 +66,8 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - $$mdi:backspace-reverse-outline$$
   layer1:
-  - {t: '`', s: '~'}
-  - F1
+  - '&studio_unlock'
+  - BT CLR ALL
   - F2
   - F3
   - F4
