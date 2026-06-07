@@ -79,7 +79,7 @@ layers:
   - F9
   - F10
   - '&mkp MB1'
-  - '&SHIFT_MCLK'
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '`', s: '~'}
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-scroll-wheel$$
