@@ -1,148 +1,70 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
+/*
+ * Exported from ZMK Studio
+ * Date: 2026-08-27T18:05:12.446Z
+ * Device: Eyelash Sofle
+ * Layers: 3
+ */
 
-#include <input/processors.dtsi>
-#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/ext_power.h>
 
-&mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
-
-&msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
-
-&msc {
-    acceleration-exponent = <1>;      // 0
-    time-to-max-speed-ms = <100>;       // 300
-    delay-ms = <0>;                   // 0
-};
-
-&mmv {
-    time-to-max-speed-ms = <500>;
-    acceleration-exponent = <1>;
-    trigger-period-ms = <16>;
-};
-
-&soft_off { hold-time-ms = <2000>; };
+#define LAYER0 0
+#define LAYER1 1
+#define LAYER2 2
 
 / {
-    scroll_encoder: scroll_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+  keymap {
+    compatible = "zmk,keymap";
 
-        tap-ms = <100>;
+    layer0_layer {
+      label = "LAYER0";
+      bindings = <
+        &trans &trans &trans &trans &trans &trans &trans /* TODO: unrecognized behavior "mouse_move" (param1=64336, param2=0) - review manually */ &trans &trans &trans
+        &trans &trans &trans &kp TAB &kp Q &kp W &kp E &kp R &kp T &trans /* TODO: unrecognized behavior "mouse_move" (param1=1200, param2=0) - review manually */
+        &kp Y &kp U &kp I &kp O &kp P &kp BSPC &kp ESC &kp A &kp S &kp D
+        &kp F &kp G &trans /* TODO: unrecognized behavior "mouse_move" (param1=4216324096, param2=0) - review manually */ &kp H &kp J &kp K &kp L &kp SEMI &kp SQT &kp LSHFT
+        &kp Z &kp X &kp C &kp V &kp B &trans /* TODO: unrecognized behavior "mouse_move" (param1=78643200, param2=0) - review manually */ &kp N &kp M &kp COMMA &kp DOT
+        &kp FSLH &kp RET &kp C_MUTE &trans &trans &kp LGUI &mo 1 &kp SPACE &trans /* TODO: unrecognized behavior "Mouse Key Press" (param1=1, param2=0) - review manually */ &kp SPACE
+        &mo 2 &kp DOWN &trans &trans
+      >;
     };
 
-    behaviors {
+    layer1_layer {
+      label = "layer1";
+      bindings = <
+        &trans &trans &trans &trans &trans &trans &trans /* TODO: unrecognized behavior "mouse_move" (param1=64336, param2=0) - review manually */ &trans &trans &trans
+        &trans &trans &trans &trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &trans /* TODO: unrecognized behavior "mouse_move" (param1=1200, param2=0) - review manually */
+        &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp BSPC &trans &kp GRAVE &trans &trans
+        &trans &trans /* TODO: unrecognized behavior "Mouse Key Press" (param1=16, param2=0) - review manually */ &trans /* TODO: unrecognized behavior "mouse_move" (param1=4216324096, param2=0) - review manually */ &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &kp BSLH &mt LSHFT 458855 /* unmapped HID usage - verify key name */
+        &kp MINUS &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &trans /* TODO: unrecognized behavior "mouse_move" (param1=78643200, param2=0) - review manually */ &kp LBKT &kp RBKT &kp LBKT &kp RBKT
+        &kp F12 &trans &kp C_MUTE &trans &trans &trans &trans &trans &trans /* TODO: unrecognized behavior "PWD" (param1=0, param2=0) - review manually */ &trans
+        &trans &trans &trans &trans
+      >;
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        softoff {
-            bindings = <&soft_off>;
-            key-positions = <14 28 40>;
-        };
+    layer2_layer {
+      label = "layer2";
+      bindings = <
+        &kp GRAVE &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans /* TODO: unrecognized behavior "mouse_move" (param1=64336, param2=0) - review manually */ &kp F6 &kp F7 &kp F8
+        &kp F9 &kp F10 &trans &trans &bt BT_CLR &bt BT_CLR_ALL &trans &trans &trans &trans /* TODO: unrecognized behavior "mouse_move" (param1=1200, param2=0) - review manually */
+        &trans &trans &kp F11 &kp F12 &kp MINUS &bt BT_CLR_ALL &trans &out OUT_USB &out OUT_BLE &trans
+        &trans &trans &trans /* TODO: unrecognized behavior "mouse_move" (param1=4216324096, param2=0) - review manually */ &kp HOME &trans &trans &kp END &kp LBKT &kp RBKT &trans
+        &sys_reset &trans &bootloader &trans &trans &trans /* TODO: unrecognized behavior "mouse_move" (param1=78643200, param2=0) - review manually */ &trans &trans &sys_reset &trans /* TODO: unrecognized behavior "z_so_off" (param1=0, param2=0) - review manually */
+        &bootloader &trans &trans &trans &trans &trans &trans &trans &trans /* TODO: unrecognized behavior "Mouse Key Press" (param1=1, param2=0) - review manually */ &trans
+        &trans &trans &trans &trans
+      >;
     };
-
-    macros {
-        PWD: PWD {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&kp LS(C) &kp O &kp L &kp L &kp A &kp P &kp S &kp E &kp LS(C) &kp O &kp L &kp L &kp A &kp P &kp S &kp E &kp EXCL &kp N1 &kp N7>,
-                <&macro_wait_time 10>,
-                <&kp ENTER>;
-
-            label = "PWD";
-            wait-ms = <10>;
-            tap-ms = <5>;
-        };
-
-        FORMAT_JSON: FORMAT_JSON {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LG(LA(LS(J)))>;
-            label = "FORMAT_JSON";
-        };
-
-        FORMAT_XML: FORMAT_XML {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(LA(LG(L)))>;
-            label = "FORMAT_XML";
-        };
-    };
-
-    keymap {
-        compatible = "zmk,keymap";
-
-        layer0 {
-            bindings = <
-&kp ESC     &kp N1     &kp N2        &kp N3        &kp N4  &kp N5       &mmv MOVE_UP     &kp N6     &kp N7    &kp N8     &kp N9        &kp N0     &kp BACKSPACE
-&kp TAB     &kp Q      &kp W         &kp E         &kp R   &kp T        &mmv MOVE_DOWN   &kp Y      &kp U     &kp I      &kp O         &kp P      &kp BSLH
-&kp ESC     &kp A      &kp S         &kp D         &kp F   &kp G        &mmv MOVE_LEFT   &kp H      &kp J     &kp K      &kp L         &kp SEMI   &kp APOS
-&kp LSHFT   &kp Z      &kp X         &kp C         &kp V   &kp B        &mmv MOVE_RIGHT  &kp N      &kp M     &kp COMMA  &kp DOT       &kp FSLH   &kp ENTER
-&kp C_MUTE  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &mo 1   &kp SPACE    &PWD             &kp SPACE  &kp LEFT  &kp DOWN   &kp UP_ARROW  &kp RIGHT
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-            display-name = "LAYER0";
-        };
-
-        layer_1 {
-            bindings = <
-&studio_unlock  &bt BT_CLR_ALL  &kp F2     &kp F3     &kp F4     &kp F5      &mmv MOVE_UP     &kp F6     &kp F7    &kp F8      &kp F9     &kp F10           &mkp MB1
-&trans          &kp GRAVE       &mkp LCLK  &mkp MCLK  &mkp RCLK  &mkp MB4    &mmv MOVE_DOWN   &kp PG_UP  &kp END   &kp UP      &kp HOME   &kp MINUS         &kp EQUAL
-&trans          &kp TILDE       &trans     &trans     &trans     &mkp MB5    &mmv MOVE_LEFT   &kp PG_DN  &kp LEFT  &kp DOWN    &kp RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&kp EQUAL       &kp LS(MINUS)   &kp MINUS  &kp PLUS   &kp LBRC   &kp RBRC    &mmv MOVE_RIGHT  &kp LBKT   &kp RBKT  &kp INSERT  &kp F11    &kp F12           &trans
-&kp C_MUTE      &trans          &trans     &trans     &trans     &trans      &mkp LCLK        &trans     &trans    &trans      &trans     &trans
-            >;
-
-            display-name = "layer1";
-            sensor-bindings = <&scroll_encoder>;
-        };
-
-        layer_2 {
-            bindings = <
-&kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp F6  &kp F7  &kp F8      &kp F9     &kp F10      &trans
-&trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &trans  &trans  &kp F11     &kp F12    &kp UNDER    &kp PLUS
-&trans     &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   &trans  &trans  &trans      &trans     &kp LBRC     &kp RBRC
-&trans     &sys_reset    &trans          &bootloader   &trans        &trans          &mmv MOVE_RIGHT  &trans  &trans  &sys_reset  &soft_off  &bootloader  &trans
-&trans     &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans      &trans     &trans
-            >;
-
-            display-name = "layer2";
-            sensor-bindings = <&scroll_encoder>;
-        };
-
-        layer_3 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-
-            display-name = "layer3";
-            sensor-bindings = <&scroll_encoder>;
-        };
-
-        layer_4 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-
-            display-name = "layer4";
-            sensor-bindings = <&scroll_encoder>;
-        };
-    };
+  };
 };
+
+/*
+ * NOTE: this export does not include combos, macros, custom behaviors, or
+ * key presses with implicit modifiers (e.g. LC(A)) - add those manually.
+ * Bindings ZMK Studio could not map to a devicetree code are exported as
+ * &trans with a TODO comment; search for "TODO" and review before building.
+ */
