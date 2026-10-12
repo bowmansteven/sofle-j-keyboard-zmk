@@ -28,6 +28,27 @@
 &soft_off { hold-time-ms = <2000>; };
 
 / {
+    /*
+     * Layer indices: 0=Base, 1=Lower (left thumb), 2=Raise (right thumb),
+     * 3=Adjust (Lower + Raise). Adjust activates momentarily when both
+     * layers are active, in either press order, and deactivates when either
+     * thumb is released. Lower/Raise thumb positions stay transparent on
+     * intermediate layers so either thumb can be pressed second.
+     *
+     * Verify by pressing Lower alone, Raise alone, then both together;
+     * release the thumbs in either order and confirm Adjust deactivates.
+     * After flashing, open ZMK Studio to verify the tri-layer, then export
+     * and save the layout to update eyelash_sofle.json for future builds.
+     */
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -101,7 +122,7 @@
 &kp TAB     &kp Q      &kp W         &kp E         &kp R   &kp T        &mmv MOVE_DOWN   &kp Y      &kp U     &kp I      &kp O         &kp P      &kp BSLH
 &kp ESC     &kp A      &kp S         &kp D         &kp F   &kp G        &mmv MOVE_LEFT   &kp H      &kp J     &kp K      &kp L         &kp SEMI   &kp APOS
 &kp LSHFT   &kp Z      &kp X         &kp C         &kp V   &kp B        &mmv MOVE_RIGHT  &kp N      &kp M     &kp COMMA  &kp DOT       &kp FSLH   &kp ENTER
-&kp C_MUTE  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &mo 1   &kp SPACE    &PWD             &kp SPACE  &kp LEFT  &kp DOWN   &kp UP_ARROW  &kp RIGHT
+&kp C_MUTE  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &mo 1   &kp SPACE    &PWD             &kp SPACE  &kp LEFT  &mo 2     &kp UP_ARROW  &kp RIGHT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
