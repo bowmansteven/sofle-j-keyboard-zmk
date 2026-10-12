@@ -27,3 +27,8 @@
 
 ![Sofle键位图](keymap-drawer/eyelash_sofle.svg)
 
+Adjust（第 3 层）的蓝牙键位、刷写、Studio 迁移及测试步骤请参阅
+[English instructions](README_EN.md#adjust-bluetooth-and-output-controls)。
+刷写普通固件会保留设置；已保存的 Studio 键位会覆盖编译默认键位。
+使用 Studio 的 Restore Stock Settings 前请先备份现有键位，无需刷写
+`settings_reset`。清除蓝牙配对后需要重新配对。
