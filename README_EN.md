@@ -24,4 +24,39 @@ For 3D printed model files or any issues and malfunctions with the keyboard, ple
 
 ## Sofle Keymap
 
+### Momentary Lower + Raise → Adjust
+
+Firmware builds use `config/eyelash_sofle.keymap` via the workflow's
+`ZMK_CONFIG` directory; the board fallback keymap is unchanged.
+Layer indices remain Base (0), Lower (1), Raise (2), Adjust (3), and layer 4.
+
+- Hold the left thumb at zero-based key position **56** (`&mo 1`) for Lower.
+- Hold the right thumb at position **61** (`&mo 2`) for Raise. This deliberately
+  replaces Base's Down arrow at the stock Raise thumb location. The other
+  navigation bindings are unchanged; Down remains available on Lower.
+- Holding both thumbs activates Adjust through native ZMK conditional layers,
+  in either press order. Releasing either immediately disables Adjust, leaving
+  only the other held layer active; releasing both returns to Base.
+
+Both thumb positions remain transparent on Lower, Raise, and Adjust. Adjust
+currently has only transparent key bindings, so it inherits from the active
+layers below it (Raise, then Lower, then Base). Its scroll encoder binding is
+unchanged; no new Adjust layout or Bluetooth/reset controls were added.
+See [ZMK conditional layers](https://zmk.dev/docs/keymaps/conditional-layers).
+
+Manual verification after flashing:
+
+1. Hold/release Lower alone: layer 1 is active only while held, never Adjust.
+2. Hold/release Raise alone: layer 2 is active only while held, never Adjust.
+3. Hold Lower, then Raise: layers 1, 2, and 3 activate. Release Lower first:
+   only Raise remains. Release Raise: return to Base.
+4. Hold Raise, then Lower: layers 1, 2, and 3 activate. Release Raise first:
+   only Lower remains. Release Lower: return to Base.
+5. Repeat both press orders, releasing the second-pressed thumb first; only the
+   first-held layer should remain until its thumb is released.
+
+Because Adjust is transparent, its activation has no distinct key output.
+Confirm layer 3 activation/deactivation with layer-state debug logging if
+available; key output alone cannot distinguish it from Lower + Raise.
+
 ![Sofle键位图](keymap-drawer/eyelash_sofle.svg)
