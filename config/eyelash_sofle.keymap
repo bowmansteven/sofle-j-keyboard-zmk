@@ -75,6 +75,21 @@
             bindings = <&kp LS(LA(LG(L)))>;
             label = "FORMAT_XML";
         };
+
+        GLOPRO: GLOPRO {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp S &kp T &kp E &kp V &kp E &kp N &kp DOT &kp B &kp O &kp W &kp M &kp A &kp N>,
+                <&macro_wait_time 10>,
+                <&kp TAB>,
+                <&macro_wait_time 10>,
+                <&kp LS(C) &kp O &kp L &kp L &kp A &kp P &kp S &kp E &kp LS(C) &kp O &kp L &kp L &kp A &kp P &kp S &kp E &kp EXCL &kp N1 &kp N8>,
+                <&macro_wait_time 10>,
+                <&kp ENTER>;
+
+            label = "GLOPRO";
+        };
     };
 
     keymap {
